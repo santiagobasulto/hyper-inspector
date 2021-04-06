@@ -70,6 +70,7 @@ if __name__ == "__main__":
 
     try:
         print("Serving...")
+        print("(To stop the server press Control+C)")
         httpd.serve_forever()
     except KeyboardInterrupt:
         print("Closing connection...")
