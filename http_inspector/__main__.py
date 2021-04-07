@@ -18,7 +18,7 @@ def str2bool(v):
         raise argparse.ArgumentTypeError("Boolean value expected.")
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(
         prog="http_inspector", description="Inspect and debug HTTP requests"
     )
@@ -69,9 +69,13 @@ if __name__ == "__main__":
     )
 
     try:
-        print("Serving...")
+        print(f"Serving on addr {args.ip} and port {args.port}...")
         print("(To stop the server press Control+C)")
         httpd.serve_forever()
     except KeyboardInterrupt:
         print("Closing connection...")
     httpd.server_close()
+
+
+if __name__ == "__main__":
+    main()

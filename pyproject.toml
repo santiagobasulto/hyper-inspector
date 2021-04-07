@@ -1,9 +1,13 @@
 [tool.poetry]
 name = "hyper-inspector"
-version = "0.0.1"
-description = "A simple HTTP inspector"
-authors = ["s"]
+version = "0.0.4"
+description = "A simple HTTP inspector to debug webhooks and other incoming requests"
+authors = ["Santiago Basulto <santiago.basulto@gmail.com>"]
 license = "MIT"
+readme = "README.md"
+packages = [
+    { include = "http_inspector" }
+]
 
 [tool.poetry.dependencies]
 python = "^3.8"
@@ -18,3 +22,6 @@ ipdb = "^0.13.7"
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
+
+[tool.poetry.scripts]
+hyper = 'http_inspector.__main__:main'
