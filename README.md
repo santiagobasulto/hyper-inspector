@@ -1,6 +1,8 @@
 A dummy/mocking server to inspect incoming HTTP connections. Use it to test/debug Webhooks.
 
-![hyper1080](https://user-images.githubusercontent.com/872296/113930350-89bbbb80-97c7-11eb-92a0-0efc63e72e38.gif)
+<p align="center">
+  <img width="900px" src="https://user-images.githubusercontent.com/872296/113930350-89bbbb80-97c7-11eb-92a0-0efc63e72e38.gif">
+</p>
 
 
 ```bash
