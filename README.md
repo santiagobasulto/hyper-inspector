@@ -1,13 +1,20 @@
-A dummy/mocking server to inspect incoming HTTP connections. Use it to test/debug Webhooks.
+A dummy/mocking server to inspect incoming HTTP connections. Use it to test/debug Webhooks. Provides nice console logging + a dump of every request as a file.
 
 <p align="center">
-  <img width="900px" src="https://user-images.githubusercontent.com/872296/113930350-89bbbb80-97c7-11eb-92a0-0efc63e72e38.gif">
+  <img width="900px" src="https://user-images.githubusercontent.com/872296/114039073-cf749480-9858-11eb-8db9-981f18b9d12c.gif">
 </p>
 
-
 ```bash
-$ docker run -it -p 5555:5555 santiagobasulto/hyper
+$ docker run -it -p 5555:5555 -v $(pwd)/logs:/app santiagobasulto/hyper
 ```
+
+Explanation:
+* `-p P1:5555`, `P1` is the local port in your host.
+* `-v YOUR_PATH:/app`, `YOUR_PATH` is a volume in your file system to store the logs of the requests.
+
+Logs names have the convention `METHOD.PATH.TIMESTAMP.request.json` and `METHOD.PATH.TIMESTAMP.body.EXTENSION` (if a body is sent). For example, `POST.some.path.1617889344.request.json` and `POST.some.path.1617889344.body.json`
+
+If you don't want to store the logs, don't pass a `-v` option.
 
 ### Installation
 
