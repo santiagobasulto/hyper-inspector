@@ -12,11 +12,20 @@ from rich.markdown import Markdown
 from rich.padding import Padding
 
 import pygments.lexers
+from pygments.util import ClassNotFound
 
 from . import BaseLogger
 
 
 TIME_FORMAT = "%Y-%m-%dT%H:%M:%S"
+
+def get_lexer_for_content_type(content_type):
+    try:
+        pygments.lexers.get_lexer_for_mimetype(
+            content_type
+        ).name
+    except ClassNotFound:
+        return "text"
 
 
 class RichLogger(BaseLogger):
@@ -94,9 +103,7 @@ class RichLogger(BaseLogger):
                     Padding("[bold]Request Body:[/bold]", (1,)),
                     Syntax(
                         request.body,
-                        pygments.lexers.get_lexer_for_mimetype(
-                            request.content_type
-                        ).name,
+                        get_lexer_for_content_type(request.content_type),
                         word_wrap=True,
                     ),
                 ]
