@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "hyper-inspector"
-version = "0.0.4"
+version = "0.0.5"
 description = "A simple HTTP inspector to debug webhooks and other incoming requests"
 authors = ["Santiago Basulto <santiago.basulto@gmail.com>"]
 license = "MIT"
